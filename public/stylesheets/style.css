@@ -1,0 +1,262 @@
+body {
+}
+
+a {
+	color: #00b7ff;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
+
+body {
+	background: linear-gradient(0deg, #fff, 50%, #deeefe);
+	font-family: "Rubik", sans-serif;
+	background: #455a64;
+	height: 100 !important;
+}
+/*BOOTSTRAP RESET*/
+
+.contraste {
+	background-color: #7b1827;
+	color: white;
+}
+
+/*FOOTER*/
+.container-fluid-footer {
+	overflow: hidden;
+	margin-top: 250px;
+	background: #262626;
+	color: #627482 !important;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+small {
+	font-size: calc(
+		12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))
+	) !important;
+}
+
+.bold-text {
+	color: #989c9e !important;
+}
+
+.mt-55 {
+	margin-top: calc(
+		50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))
+	) !important;
+}
+
+h3 {
+	font-size: calc(
+		34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))
+	) !important;
+}
+
+.social {
+	font-size: 21px !important;
+}
+
+.rights {
+	font-size: calc(
+		10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))
+	) !important;
+}
+/*END FOOTER*/
+
+.Wrapper__Container {
+	padding-top: 100px;
+}
+.Footer__Container {
+}
+
+/*CAROUSEL*/
+#carouselExampleIndicators {
+	width: 800px;
+
+	margin: 0 auto;
+}
+.carousel-control-prev,
+.carousel-control-next {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	color: white;
+}
+/*END CAROUSEL*/
+/*PROMOTIONS*/
+.Promotions__Container {
+	display: flex;
+	flex-direction: row;
+	padding: 50px 10px;
+	justify-content: space-around;
+}
+.Promotion__Imagen {
+	height: 250px;
+	width: 400px;
+}
+.Promotion {
+	margin: 0 10px;
+}
+
+/*END PROMOTIONS*/
+
+/*SECTION WELCOME*/
+.Welcome__Container {
+	text-align: center;
+	padding: 100px 0px;
+}
+
+.Welcome__Container-Row {
+	padding: 5px;
+}
+/*SECTION WELCOME END*/
+
+.MeetUs__Container {
+	display: flex;
+	flex-direction: row;
+}
+
+.MeetUs__Container-Child {
+	padding: 20px;
+}
+
+.MeetUs__Description-Child {
+	padding: 10px;
+}
+/*FORMS*/
+.label-title {
+	font-weight: bold;
+}
+.label-value {
+}
+.contenedor-formulario {
+	width: 50%;
+}
+.divButtons {
+	text-align: right;
+	padding: 10px;
+}
+
+.validacion {
+	color: red;
+}
+
+.contenedor-pedido {
+}
+
+.titulo-categoria {
+	font-size: 40px;
+}
+
+.contenedor-falso {
+	background-color: #e8e3e3;
+}
+
+.producto {
+	border: 1px solid black;
+	padding: 5px;
+	border-radius: 4px;
+	display: flex;
+}
+.col-md-6 {
+	padding: 5px;
+}
+.detalle-producto {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	padding: 5px;
+}
+
+.imagen-producto img {
+	width: 150px;
+}
+
+.precio-boton-producto {
+	display: flex;
+	justify-content: space-between;
+}
+.precio-producto {
+	font-size: 20px;
+	font-weight: 600;
+}
+.titulo-producto {
+	font-size: 24px;
+}
+
+.lista-productos-pedidos {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.lista-productos-pedidos li {
+	padding: 5px;
+}
+
+/*FORMULARIO LOGIN*/
+
+.login_box {
+	width: 320px;
+	height: 420px;
+	background: rgb(0, 0, 0);
+	color: rgb(111, 121, 151);
+	box-sizing: border-box;
+	padding: 70px 30px;
+	margin: 0 auto;
+}
+
+.login_box .avatar {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+	left: calc(50% - 50px);
+}
+
+.login_box h1 {
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.login_box label {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	display: block;
+}
+
+.login_box input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.login_box input[type="text"],
+.login_box input[type="password"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+
+.login_box input[type="submit"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	background: rgb(88, 84, 104);
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+}
+
+.login_box a {
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: darkgray;
+}

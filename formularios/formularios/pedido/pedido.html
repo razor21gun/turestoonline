@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="pedido.css">
+</head>
+<body>
+    <div class="pedido__container">
+        <h2>Pedido</h2>
+        <label>
+            ID
+        </label>
+        <label id="idPedido">
+            
+        </label>
+        <div class="row">
+            <label>
+                Codigo Pedido
+            </label>
+            <label id="codigoPedido">
+                
+            </label>
+        </div>
+        <div class="row">
+            <label>
+                Fecha
+            </label>
+            <label id="Fecha">
+                
+            </label>
+        </div>
+        <div class="row">
+            <label>
+                Usuario
+            </label>
+            <label id="Usuario">
+                
+            </label>
+        </div>
+        <div class="row">
+            <label>
+                Forma de Pago
+            </label>
+            <label id="FormaDePago">
+                
+            </label>
+        </div>
+        <label>
+            Productos:
+            <ul>
+                <i>Pizza</i><br>
+                <i>Coca Cola</i><br>
+                <i>Empanadas</i><br>
+                <i>Milanesa con Fritas</i><br>
+            </ul>
+        </label>
+        <label for="form-Estado-Pedido" class="form-label">Estado del Pedido</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Estado del Pedido</option>
+                        <option value="1">Pendiente</option>
+                        <option value="2">En Preparacion</option>
+                        <option value="3">Listo Para Retirar</option>
+                        <option value="4">En Camino</option>
+                        <option value="5">Cancelado</option>
+                        <option value="6">Entregado</option>
+                    </select>
+                    <div class= buttom>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary">Cancelar</button>
+                    </div>
+    </div>
+    
+</body>
+</html>

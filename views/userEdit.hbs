@@ -1,0 +1,149 @@
+<form class="contenedor-formulario">
+  <H2>Editar Usuario</H2>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="inputNombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="inputNombre" value="{{user.Nombre}}">
+      <label class="validacion" id="lblValidacionNombre"></label>
+    </div>
+    <div class="col-md-6">
+      <label for="inputApellido" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="inputApellido" value="{{user.Apellido}}">
+      <label class="validacion" id="lblValidacionApellido"></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="telClase col-6">
+      <label for="inputTelefono" class="form-label">Telefono</label>
+      <input type="tel" class="form-control" id="inputTelefono" value="{{user.Telefono}}">
+      <label class="validacion" id="lblValidacionTelefono"></label>
+    </div>
+    <div class="emailClase col-6">
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="text" class="form-control" id="inputEmail" placeholder="example@outloock.com" value="{{user.Email}}">
+      <label class="validacion" id="lblValidacionEmail"></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Ciudad</label>
+      <input type="text" class="form-control" id="inputCity" value="{{user.Ciudad}}">
+      <label class="validacion" id="lblValidacionCiudad"></label>
+    </div>
+    <div class="col-md-6">
+      <label for="inputDomicilio" class="form-label">Domicilio</label>
+      <input type="text" class="form-control" id="inputDomicilio" value="{{user.Domicilio}}">
+      <label class="validacion" id="lblValidacionDomicilio"></label>
+    </div>
+  </div>
+  {{!-- <div class="row">
+    <div class="passwordClase col-md-12">
+      <label for="inputPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword" value="{{user.Password}}">
+    </div>
+  </div> --}}
+  <div class="divButtons">
+    <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+    <button type="button" class="btn btn-secondary">Cancelar</button>
+  </div>
+</form>
+
+<script>
+  $(document).ready(function () {
+    var estaOk = true;
+    $("#btnGuardar").click(function () {
+      var nombre = $("#inputNombre").val();
+      if (nombre == "") {
+        $("#lblValidacionNombre").text("este campo no puede estar vacio");
+        estaOk = false;
+      } else {
+        $("#lblValidacionNombre").text("");
+        if (nombre.length > 50) {
+          $("#lblValidacionNombre").text("la longitud maxima de este campo es de 50 caracteres");
+          estaOk = false;
+        } else {
+          $("#lblValidacionNombre").text("");
+        }
+      }
+
+
+      var apellido = $("#inputApellido").val();
+      if (apellido == "") {
+        $("#lblValidacionApellido").text("este campo no puede estar vacio");
+        estaOk = false;
+      } else {
+        $("#lblValidacionApellido").text("");
+        if (apellido.length > 50) {
+          $("#lblValidacionApellido").text("la longitud maxima de este campo es de 50 caracteres");
+          estaOk = false;
+        } else {
+          $("#lblValidacionApellido").text("");
+        }
+      }
+
+
+      var telefono = $("#inputTelefono").val();
+      if (telefono == "") {
+        $("#lblValidacionTelefono").text("este campo no puede estar vacio");
+        estaOk = false;
+      } else {
+        $("#lblValidacionTelefono").text("");
+        if (telefono.length > 10) {
+          $("#lblValidacionTelefono").text("la longitud maxima de este campo es de 10 caracteres");
+          estaOk = false;
+        } else {
+          $("#lblValidacionTelefono").text("");
+        }
+      }
+
+
+      var email = $("#inputEmail").val();
+      if (email == "") {
+        $("#lblValidacionEmail").text("este campo no puede estar vacio");
+        estaOk = false;
+      } else {
+        $("#lblValidacionEmail").text("");
+        if (email.length > 50) {
+          $("#lblValidacionEmail").text("la longitud maxima de este campo es de 50 caracteres");
+          estaOk = false;
+        } else {
+          $("#lblValidacionEmail").text("");
+        }
+      }
+
+
+      var ciudad = $("#inputCity").val();
+      if (ciudad == "") {
+        $("#lblValidacionCiudad").text("este campo no puede estar vacio");
+        estaOk = false;
+      } else {
+        $("#lblValidacionCiudad").text("");
+        if (ciudad.length > 50) {
+          $("#lblValidacionCiudad").text("la longitud maxima de este campo es de 50 caracteres");
+          estaOk = false;
+        } else {
+          $("#lblValidacionCiudad").text("");
+        }
+      }
+
+
+      var domicilio = $("#inputDomicilio").val();
+      if (domicilio == "") {
+        $("#lblValidacionDomicilio").text("este campo no puede estar vacio");
+        estaOk = false;
+      } else {
+        $("#lblValidacionDomicilio").text("");
+        if (domicilio.length > 50) {
+          $("#lblValidacionDomicilio").text("la longitud maxima de este campo es de 50 caracteres");
+          estaOk = false;
+        } else {
+          $("#lblValidacionDomicilio").text("");
+        }
+      }
+      if (estaOk)
+        $("form").submit();
+
+
+    });
+  });
+</script>

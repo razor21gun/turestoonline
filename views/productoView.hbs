@@ -1,0 +1,37 @@
+<form class="contenedor-formulario" method="POST" action="/product/new">
+    <h2>Ver Producto</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="form-Categoria" class="form-label">Categoria</label>
+            <label> {{producto.Categoria}} </label>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="categoriaNombre col-md-6">
+            <label for="form-Nombre" class="form-label">Nombre:</label>
+            <label> {{producto.Nombre}} </label>
+        </div>
+        <div class="categoriaPrecio col-md-6">
+            <label for="form-Precio" class="form-label">Precio: $</label>
+            <label> {{producto.Precio}} </label>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+            <label> {{producto.Descripcion}} </label>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png" alt="">
+        </div>
+    </div>
+    <div class="divButton">
+        <button type="button" class="btn btn-secondary">Cancelar</button>
+    </div>
+
+</form>

@@ -1,0 +1,35 @@
+body {
+    background-image: url('https://fondosmil.com/fondo/56631.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+.pedido__container {
+        background-color: white;
+        width: 70%;
+        padding: 20px 30px;
+        margin: 0% auto;
+        border-radius: 4px ;
+        margin-top: 50px;
+        margin-bottom: 50px;
+            
+    -webkit-box-shadow: -2px 9px 24px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 9px 24px -5px rgba(0,0,0,0.75);
+    box-shadow: -2px 9px 24px -5px rgba(0,0,0,0.75);
+    }
+ h2 {
+        margin: 25px;
+    }
+    
+.buttom {
+        margin: 30px;
+        text-align: right;
+    }
+    
+.formulario {
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        justify-content: space-around;
+        font-family: arial
+     }

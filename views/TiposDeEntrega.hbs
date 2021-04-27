@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Tipos de Entrega</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/deliveryType/create" class="btn btn-primary">Nuevo</a>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tipos de Entregas</th>
+                        <th scope="col">Activo</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each deliveryType}}
+                    <tr>
+                        <td scope="row">{{ID}}</td>
+                        <td>{{DeliveryType}}</td>
+                        <td>{{Activo}}</td>
+                        <td>
+                            <div>
+                                <a href="/deliveryType/view/{{ID}}" class="btn btn-primary">Ver</a>
+                                <a href="/deliveryType/edit/{{ID}}" class="btn btn-warning">Editar</a>
+                                <a href="" class="btn btn-danger">Eliminar</a>
+
+                            </div>
+                        </td>
+
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

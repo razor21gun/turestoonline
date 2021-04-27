@@ -1,0 +1,54 @@
+<div>
+    {{#if Categoria}}
+    <form class="contenedor-formulario" method="POST" action="/category/update/{{Categoria.ID}}"
+        enctype="multipart/form-data">
+        {{else}}
+        <form class="contenedor-formulario" method="POST" action="/category/create" enctype="multipart/form-data">
+            {{/if}}
+
+            <h2>{{TituloForm}} Categoría</h2>
+            <div class="mb-3">
+                <label for="exampleCategoria" class="form-categoria">Categoría</label>
+                <input type="text" class="form-control" id="txtCategoria" placeholder="inserte categoría"
+                    name="Categoria" value={{Categoria.Categoria}} />
+                <label class="validacion"> </label>
+            </div>
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Seleccionar Imagen</label>
+                <input class="form-control" type="file" id="formFile" name="imagen">
+            </div>
+            {{!-- <div class="mb-3">
+                <div class="col-md-12">
+                    <input class="form-check-input" type="checkbox" name="Activo" {{#if Categoria.Activo}} checked
+                        {{/if}} id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Activo {{Categoria.Activo}}
+                    </label>
+                </div>
+            </div> --}}
+            <div class="buttom">
+                <button type="button" class="btn btn-primary" id="btnGuardar">
+                    Guardar
+                </button>
+                <button type="button" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </form>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#btnGuardar").click(function (event) {
+            var categoria = $("#txtCategoria").val();
+            if (!categoria) {
+                $(".validacion").text("este campo no puede estar vacio");
+            } else {
+                $(".validacion").text("");
+                $("form").submit();
+            }
+
+        });
+        $("#flexCheckDefault").click(function () {
+            $(this).prop("checked");
+        });
+    });
+</script>
