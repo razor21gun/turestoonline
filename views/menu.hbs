@@ -1,0 +1,86 @@
+<div class="Container__Body">
+    <div class="contenedor-pedido row">
+        <div class="menu columna-pedido col-md-12">
+            {{#each Menu}}
+            <div class="contenedor-categoria">
+                <div class="titulo-categoria row">
+                    {{Key}}
+                </div>
+                <div class="lista-productos row">
+                    {{#each  Values}}
+                    <div class="col-md-6">
+                        <div class="producto">
+
+                            <div class="imagen-producto">
+                                <img src="/images/{{UID}}" alt="">
+                            </div>
+                            <div class="detalle-producto">
+                                <div class="titulo-producto">
+                                    {{Producto}}
+                                </div>
+                                <div class="descripcion-producto">
+                                    {{Descripcion}}
+                                </div>
+                                <div class="precio-boton-producto">
+                                    <label class="precio-producto">
+                                        ${{Precio}}
+                                    </label>
+                                    {{!-- <button type="button" class="btn btn-primary" id="btnGuardar">
+                                        Guardar
+                                    </button> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{!-- <div class="pedido columna-pedido col-md-2">
+            <div class="form-pedido">
+                <div class="titulo-pedido">
+                    <h2> Pedido </h2>
+                </div>
+
+                <div class="producto-pedido">
+                    <ul class="lista-productos-pedidos">
+                        <li>
+                            <i class="fas fa-minus-circle"></i>
+                            <span class="cart-item">
+                                pizza 4 quesos
+                            </span>
+                            <span class="cart-item item-price">
+                                $1030
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-minus-circle"></i>
+                            <span class="cart-item">
+                                milanesa
+                            </span>
+                            <span class="cart-item item-price">
+                                $1200
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="total-pedido">
+                    <span class="texto-total">
+                        Total
+                    </span>
+                    <span class="total-cart">
+                        $1100
+                    </span>
+                </div>
+
+                <div class="botones-pedido">
+                    <button type="button" class="btn btn-primary">Realizar Pedido</button>
+                </div>
+
+            </div>
+        </div> --}}
+    </div>
+</div>

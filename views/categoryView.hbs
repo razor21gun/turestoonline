@@ -1,5 +1,5 @@
-<div>
-    <form class="contenedor-formulario" method="POST" action="/category/new">
+<div class="Container__Body">
+    <form class="contenedor-formulario" method="POST" action="/admin/category/new">
         <h2>Ver Categoría</h2>
         <div class="mb-3">
             <label for="exampleCategoria" class="form-categoria">Categoría</label>
@@ -11,11 +11,11 @@
         </div>
 
         <div class="mb-3">
-            <img src="/images/{{UID}}" alt="">
+            <img class="Formulario__Imagen-Preview" src="/images/{{UID}}" alt="">
         </div>
 
-        <div class="buttom">
-            <button type="button" class="btn btn-secondary">Cancelar</button>
+        <div class="divButtons">
+            <a href="/admin/category/list/" class="btn btn-secondary">Cancelar</a>
         </div>
     </form>
 </div>

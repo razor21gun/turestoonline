@@ -1,22 +1,25 @@
-<div>
+<div class="Container__Body">
     {{#if Categoria}}
-    <form class="contenedor-formulario" method="POST" action="/category/update/{{Categoria.ID}}"
+    <form class="contenedor-formulario" method="POST" action="/admin/category/update/{{Categoria.ID}}"
         enctype="multipart/form-data">
         {{else}}
-        <form class="contenedor-formulario" method="POST" action="/category/create" enctype="multipart/form-data">
+        <form class="contenedor-formulario" method="POST" action="/admin/category/create" enctype="multipart/form-data">
             {{/if}}
 
             <h2>{{TituloForm}} Categoría</h2>
             <div class="mb-3">
                 <label for="exampleCategoria" class="form-categoria">Categoría</label>
                 <input type="text" class="form-control" id="txtCategoria" placeholder="inserte categoría"
-                    name="Categoria" value={{Categoria.Categoria}} />
+                    name="Categoria" value="{{Categoria.Categoria}}" />
                 <label class="validacion"> </label>
             </div>
 
             <div class="mb-3">
                 <label for="formFile" class="form-label">Seleccionar Imagen</label>
                 <input class="form-control" type="file" id="formFile" name="imagen">
+            </div>
+            <div class="mb-3">
+                <img src="/images/{{UID}}" alt="">
             </div>
             {{!-- <div class="mb-3">
                 <div class="col-md-12">
@@ -27,13 +30,16 @@
                     </label>
                 </div>
             </div> --}}
-            <div class="buttom">
+            <div class="divButtons">
                 <button type="button" class="btn btn-primary" id="btnGuardar">
                     Guardar
                 </button>
-                <button type="button" class="btn btn-secondary">Cancelar</button>
+                <a href="/admin/category/list/" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
+        <div>
+            <h3>{{Message}}</h3>
+        </div>
 </div>
 <script>
     $(document).ready(function () {

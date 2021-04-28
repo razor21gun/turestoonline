@@ -1,42 +1,37 @@
-<form class="contenedor-formulario">
-  <H2>Ver Usuario</H2>
-  <div class="row">
-    <div class="col-md-6">
-      <label class="form-label label-title">ID</label>
-      <label class="form-label label-value">{{user.ID}}</label>
+<div class="Container__Body">
+  <form class="contenedor-formulario">
+    <H2>Ver Usuario</H2>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label label-title">ID</label>
+        <label class="form-label label-value">{{user.ID_Usuario}}</label>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <label class="form-label label-title">Nombre</label>
-      <label id="lblValueNombre" class="form-label label-value">{{user.Nombre}}</label>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label label-title">Nombre</label>
+        <label id="lblValueNombre" class="form-label label-value">{{user.Nombre}}</label>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label label-title">Apellido</label>
+        <label id="lblValueNombre" class="form-label label-value">{{user.Apellido}}</label>
+      </div>
     </div>
-    <div class="col-md-6">
-      <label class="form-label label-title">Apellido</label>
-      <label id="lblValueNombre" class="form-label label-value">{{user.Apellido}}</label>
+    <div class="row">
+      <div class="emailClase col-6">
+        <label class="form-label label-title">Username</label>
+        <label id="lblValueNombre" class="form-label label-value">{{user.UserName}}</label>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="telClase col-6">
-      <label class="form-label label-title">Telefono</label>
-      <label id="lblValueNombre" class="form-label label-value">{{user.Telefono}}</label>
+    <div class="row">
+      <div class="emailClase col-6">
+        <label class="form-label label-title">Email</label>
+        <label id="lblValueNombre" class="form-label label-value">{{user.Email}}</label>
+      </div>
     </div>
-    <div class="emailClase col-6">
-      <label class="form-label label-title">Email</label>
-      <label id="lblValueNombre" class="form-label label-value">{{user.Email}}</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <label class="form-label label-title">Ciudad</label>
-      <label id="lblValueNombre" class="form-label label-value">{{user.Ciudad}}</label>
-    </div>
-    <div class="col-md-6">
-      <label class="form-label label-title">Domicilio</label>
-      <label id="lblValueNombre" class="form-label label-value">{{user.Domicilio}}</label>
-    </div>
-  </div>
-  <div class="divButtons">
-    <button type="button" class="btn btn-secondary">Cancelar</button>
-  </div>
+</div>
+<div class="divButtons">
+  <a href="/admin/users/list/" class="btn btn-secondary">Cancelar</a>
+</div>
 </form>
+</div>

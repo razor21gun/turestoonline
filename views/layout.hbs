@@ -32,28 +32,31 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/order/create">Pedir</a>
+              <a class="nav-link" href="/order/menu">Menu</a>
             </li>
-            <li class="nav-item">
+            {{!-- <li class="nav-item">
               <a class="nav-link" href="/order/myorders">Mis Pedidos</a>
-            </li>
+            </li> --}}
+            {{#if isAdmin}}
             <li class="nav-item">
               <a class="nav-link" href="/order/list">Todos los Pedidos</a>
             </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Admin
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/product/list">Productos</a></li>
-                <li><a class="dropdown-item" href="/category/list">Categorias</a></li>
-                <li><a class="dropdown-item" href="/deliveryType/list">Tipos de Entregas</a></li>
-                <li><a class="dropdown-item" href="/paymentType/list">Tipos de Pagos</a></li>
-                <li><a class="dropdown-item" href="/users/list">Usuarios</a></li>
-                <li><a class="dropdown-item" href="/orderState/list">Estado Pedido</a></li>
+                <li><a class="dropdown-item" href="/admin/product/list">Productos</a></li>
+                <li><a class="dropdown-item" href="/admin/category/list">Categorias</a></li>
+                <li><a class="dropdown-item" href="/admin/deliveryType/list">Tipos de Entregas</a></li>
+                <li><a class="dropdown-item" href="/admin/paymentType/list">Tipos de Pagos</a></li>
+                <li><a class="dropdown-item" href="/admin/users/list">Usuarios</a></li>
+                <li><a class="dropdown-item" href="/admin/orderState/list">Estado Pedido</a></li>
               </ul>
             </li>
+            {{/if}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item dropdown">
@@ -63,11 +66,13 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                 <li><a class="dropdown-item" href="/login/">Iniciar Sesion</a></li>
-                <li><a class="dropdown-item" href="/registro">Registrarse</a></li>
-                <li>
+                {{#if isAdmin}}
+                <li><a class="dropdown-item" href="/admin/registro">Registrarse</a></li>
+                {{/if}}
+                {{!-- <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li> --}}
               </ul>
             </li>
           </ul>
@@ -85,21 +90,19 @@
           <div class="col-11">
             <div class="row ">
               <div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
-                <h3 class="text-muted mb-md-0 mb-5 bold-text">Pepper.</h3>
+                <h3 class="text-muted mb-md-0 mb-5 bold-text">Tu Resto Online.</h3>
               </div>
               <div class="col-xl-2 col-md-4 col-sm-4 col-12">
-                <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
+                <h6 class="mb-3 mb-lg-4 bold-text "><b>Horarios</b></h6>
                 <ul class="list-unstyled">
-                  <li>Home</li>
-                  <li>About</li>
-                  <li>Blog</li>
-                  <li>Portfolio</li>
+                  <li>Lun a Vier 09hs a 20hs</li>
+                  <li>Sab a Dom 09hs a 15hs</li>
                 </ul>
               </div>
               <div class="col-xl-2 col-md-4 col-sm-4 col-12">
                 <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
-                <p class="mb-1">605, RATAN ICON BUILDING</p>
-                <p>SEAWOODS SECTOR</p>
+                <p class="mb-1">OBELISCO</p>
+                <p>CABA</p>
               </div>
             </div>
             <div class="row ">
@@ -108,16 +111,16 @@
                       aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-linkedin-square"
                       aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-twitter"
                       aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-instagram"
-                      aria-hidden="true"></i></span> </p><small class="rights"><span>&#174;</span> Pepper All Rights
+                      aria-hidden="true"></i></span> </p><small class="rights"><span>&#174;</span> TuRestoOnline All
+                  Rights
                   Reserved.</small>
               </div>
               <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
-                <h6 class="mt-55 mt-2 text-muted bold-text"><b>ANIRUDH SINGLA</b></h6><small> <span><i
-                      class="fa fa-envelope" aria-hidden="true"></i></span> anirudh@gmail.com</small>
+                <h6 class="mt-55 mt-2 text-muted bold-text"><b>Phone</b></h6><small> <span></span> 1111-1111 </small>
               </div>
               <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
-                <h6 class="text-muted bold-text"><b>RISHABH SHEKHAR</b></h6><small><span><i class="fa fa-envelope"
-                      aria-hidden="true"></i></span> rishab@gmail.com</small>
+                <h6 class="text-muted bold-text"><b>Contact Us</b></h6><small><span><i class="fa fa-envelope"
+                      aria-hidden="true"></i></span> turestoonline@gmail.com</small>
               </div>
             </div>
           </div>

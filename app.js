@@ -4,20 +4,28 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
-
+var session = require("express-session");
+var {verifyAdmin} = require("./middlewares/auth");
 dotenv.config();
+var app = express();
+app.use(session({
+  secret:"passSecreto",
+  cookie: {maxAge:null},
+  resave:true,
+  saveUninitialized:false
+}))
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/user');
+var usersRouter = require('./routes/admin/user');
 var orderRouter = require('./routes/order');
-var registroRouter = require('./routes/registro');
-var productRouter = require('./routes/product');
-var categoryRouter = require('./routes/category');
+var registroRouter = require('./routes/admin/registro');
+var productRouter = require('./routes/admin/product');
+var categoryRouter = require('./routes/admin/category');
 var deliveryTypeRouter = require('./routes/deliveryType');
-var paymentTypeRouter = require('./routes/paymentType');
+var paymentTypeRouter = require('./routes/admin/paymentType');
 var loginRouter = require('./routes/login');
-var orderStateRouter = require('./routes/orderState');
-var app = express();
+var orderStateRouter = require('./routes/admin/orderState');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/popper.js/dist'));
@@ -36,15 +45,15 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use(express.static(__dirname + '/public/images'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin/users', usersRouter);
 app.use('/order', orderRouter);
-app.use('/registro', registroRouter);
-app.use('/product', productRouter);
-app.use('/category', categoryRouter);
-app.use('/deliveryType', deliveryTypeRouter);
-app.use('/paymentType', paymentTypeRouter);
+app.use('/admin/registro', registroRouter);
+app.use('/admin/product', verifyAdmin ,productRouter);
+app.use('/admin/category', categoryRouter);
+app.use('/admin/deliveryType', deliveryTypeRouter);
+app.use('/admin/paymentType', paymentTypeRouter);
 app.use('/login', loginRouter);
-app.use('/orderState', orderStateRouter);
+app.use('/admin/orderState', orderStateRouter);
 
 
 

@@ -1,7 +1,8 @@
 var express = require('express');
-const model = require("./../models/categoria");
+const model = require("../../models/categoria");
 const multer = require("multer");
-const service = require("./../services/categoria")
+const service = require("../../services/categoria");
+const {verifyCategory} = require("./../../middlewares/category");
 const config = {
   dest: "./public/tmp"
 }
@@ -34,24 +35,17 @@ const getCreate = (req,res) => {
 }
 const postCreate = async (req,res) => {
   const obj = req.body;
-  console.log("en la royte")
-  console.log(obj);
   obj["Activo"] = 1;
-  // console.log("Objeto");
-  // console.log(obj);
-  // const newCategory = await model.newCategory(obj);
-  // res.end();
   const idFile = await service.createCatgoria(obj,req.file);
-  res.redirect("/category/list")
+  res.redirect("/admin/category/list")
 }
 const postUpdate = async (req,res) => {
   const obj = req.body;
   const id = req.params.id;
-  //obj["Activo"] = (obj["Activo"] == "on") ? 1 : 0;
   console.log("Objeto");
   console.log(obj);
   const updateCategory = await model.update(id,obj);
-  res.end();
+  res.redirect("/admin/category/list")
 }
 
 const getView = async (req,res) => {
@@ -70,7 +64,6 @@ const getView = async (req,res) => {
 const getDelete = async (req,res) => {
   const obj = req.body;
   const id = req.params.id;
-  //obj["Activo"] = (obj["Activo"] == "on") ? 1 : 0;
   console.log("Objeto");
   console.log(obj);
   const updateCategory = await model.deleteCategory(id);
@@ -80,10 +73,9 @@ const getDelete = async (req,res) => {
 router.get('/edit/:id', edit);
 router.get('/list', getList);
 router.get('/create',getCreate);
-router.post('/create',upload.single("imagen"),postCreate);
-router.post('/update/:id',postUpdate);
+router.post('/create',upload.single("imagen"),verifyCategory,postCreate);
+router.post('/update/:id',upload.single("imagen"),verifyCategory,postUpdate);
 router.get('/view/:id', getView);
 router.get('/delete/:id', getDelete);
-
 
 module.exports = router;

@@ -1,25 +1,25 @@
 var express = require('express');
-const model = require("./../models/usuario");
+const model = require("../../models/usuario");
 var router = express.Router();
-const {send} = require('./../services/mail');
+const {send} = require('../../services/mail');
 const sha1 = require("sha1");
 
 /* GET users listing. */
 const postCreate = async (req, res) =>{
     try {
         const user = req.body;
-        const password = sha1(user.password);
-        model.newUser(user);
-        //const pass
-        console.log(req.body.email)
+        const password = sha1(user.Password);
+        user["Password"] = password;
+        user["Activo"] = 1;
+        const resultDB = model.newUser(user);
         const objEmail = {
-            mail : req.body.email,
+            mail : req.body.Email,
             subject : "Bienvenido",
             text : "Gracias por registrarse!"
         }
         const mail = await send(objEmail);
-        console.log(mail);
-        res.end();
+        
+        res.redirect("/admin/users/list")
     } catch (error) {
         console.log(error);
     }

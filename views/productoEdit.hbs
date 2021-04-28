@@ -1,111 +1,121 @@
-<form class="contenedor-formulario" method="POST" action="/product/new">
-    <h2>Nuevo Producto</h2>
-    <div class="row">
-        <div class="col-md-12">
-            <label for="form-Categoria" class="form-label">Categoria</label>
-            <select class="form-select" id="cmbCategoria" aria-label="Default select example">
-                <option selected>Categoria del Menu</option>
-                <option value="1">Pizza</option>
-                <option value="2">Empanada</option>
-                <option value="3">Milanesa con Fritas</option>
-            </select>
-            <label class="validacion" id="lblValidacionCategoria"></label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="categoriaNombre col-md-6">
-            <label for="form-Nombre" class="form-label">Nombre:</label>
-            <input class="form-Nombre" type="text" id="inputNombre" value={{producto.Nombre}}>
-            <label class="validacion" id="lblValidacionNombre"></label>
-        </div>
-        <div class="categoriaPrecio col-md-6">
-            <label for="form-Precio" class="form-label">Precio: $</label>
-            <input class="form-Precio" type="text" id="inputPrecio" value={{producto.Precio}}>
-            <label class="validacion" id="lblValidacionPrecio"></label>
-        </div>
+<div class="Container__Body">
+    {{#if Categoria}}
+    <form class="contenedor-formulario" method="POST" action="/admin/product/update/{{ID}}"
+        enctype="multipart/form-data">
+        {{else}}
+        <form class="contenedor-formulario" method="POST" action="/admin/product/create" enctype="multipart/form-data">
+            {{/if}}
+            <h2>{{title}} Producto</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="form-control" class="form-label">Categoria *:</label>
+                    <select class="form-select" id="cmbCategoria" aria-label="Default select example"
+                        name="FK_ID_Categoria">
+                        <option>Categoria del Menu</option>
+                        {{!-- <option value="1">Pizza</option>
+                        <option value="2">Empanada</option>
+                        <option value="3">Milanesa con Fritas</option> --}}
+                        {{#each categorias}}
+                        <option value="{{ID_Categoria}}" {{#if Selected}}selected {{/if}}> {{Categoria}}</option>
+                        {{/each}}
+                    </select>
+                    <label class="validacion" id="lblValidacionCategoria"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="categoriaProducto col-md-6">
+                    <label for="form-control" class="form-label">Producto *:</label>
+                    <input class="form-control" type="text" id="inputProducto" value="{{Producto}}" name="Producto">
+                    <label class="validacion" id="lblValidacionProducto"></label>
+                </div>
+                <div class="categoriaPrecio col-md-6">
+                    <label for="form-control" class="form-label">Precio *: $</label>
+                    <input class="form-control" type="text" id="inputPrecio" value="{{Precio}}" name="Precio">
+                    <label class="validacion" id="lblValidacionPrecio"></label>
+                </div>
 
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-            <textarea class="form-control" id="inputDescripcion" rows="3">{{producto.Descripcion}}</textarea>
-            <label class="validacion" id="lblValidacionDescripcion"></label>
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="exampleFormControlTextarea1" class="form-label">Descripcion *:</label>
+                    <textarea class="form-control" id="inputDescripcion" rows="3"
+                        name="Descripcion">{{Descripcion}}</textarea>
+                    <label class="validacion" id="lblValidacionDescripcion"></label>
+                </div>
 
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <label for="formFile" class="form-label">Seleccionar Foto</label>
-            <input class="form-control" type="file" id="inputFoto">
-            <label class="validacion" id="lblValidacionFoto"></label>
-
-
-        </div>
-    </div>
-    <div class="divButton">
-        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
-        <button type="button" class="btn btn-secondary">Cancelar</button>
-    </div>
-
-</form>
-
-<script>
-    $(document).ready(function () {
-        $("#btnGuardar").click(function () {
-            var estaOk = true;
-            var categoria = $("#cmbCategoria option:selected").val();
-            debugger;
-            if (!categoria) {
-                $("#lblValidacionCategoria").text("este campo no puede estar vacio");
-                estaOk = false;
-            } else {
-                $("#lblValidacionCategoria").text("");
-
-            }
-
-            var nombre = $("#inputNombre").val();
-            if (!nombre) {
-                $("#lblValidacionNombre").text("este campo no puede estar vacio");
-                estaOk = false;
-            } else {
-                $("#lblValidacionNombre").text("");
-
-            }
-
-            var precio = $("#inputPrecio").val();
-            if (!precio) {
-                $("#lblValidacionPrecio").text("este campo no puede estar vacio");
-                estaOk = false;
-            } else {
-                $("#lblValidacionPrecio").text("");
-
-            }
-
-            var descripcion = $("#inputDescripcion").val();
-            if (!descripcion) {
-                $("#lblValidacionDescripcion").text("este campo no puede estar vacio");
-                estaOk = false;
-            } else {
-                $("#lblValidacionDescripcion").text("");
-
-            }
-
-            var foto = $("#inputFoto").val();
-            if (!foto) {
-                $("#lblValidacionFoto").text("este campo no puede estar vacio");
-                estaOk = false;
-            } else {
-                $("#lblValidacionFoto").text("");
-
-            }
-
-            if (estaOk)
-                $("form").submit();
-
-            //FATA EL SUBMIT
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="formFile" class="form-label">Seleccionar Foto</label>
+                    <input class="form-control" type="file" id="inputFoto" name="imagen">
+                    <label class="validacion" id="lblValidacionFoto"></label>
 
 
+                </div>
+            </div>
+            <div class="divButtons">
+                <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                <a href="/admin/product/list/" class="btn btn-secondary">Cancelar</a>
+            </div>
 
-        });
-    });
-</script>
+        </form>
+
+        <script>
+            $(document).ready(function () {
+                $("#btnGuardar").click(function () {
+                    var estaOk = true;
+                    var categoria = $("#cmbCategoria option:selected").val();
+                    if (!categoria) {
+                        $("#lblValidacionCategoria").text("este campo no puede estar vacio");
+                        estaOk = false;
+                    } else {
+                        $("#lblValidacionCategoria").text("");
+
+                    }
+
+                    var producto = $("#inputProducto").val();
+                    if (!producto) {
+                        $("#lblValidacionProducto").text("este campo no puede estar vacio");
+                        estaOk = false;
+                    } else {
+                        $("#lblValidacionProducto").text("");
+
+                    }
+
+                    var precio = $("#inputPrecio").val();
+                    if (!precio) {
+                        $("#lblValidacionPrecio").text("este campo no puede estar vacio");
+                        estaOk = false;
+                    } else {
+                        $("#lblValidacionPrecio").text("");
+
+                    }
+
+                    var descripcion = $("#inputDescripcion").val();
+                    if (!descripcion) {
+                        $("#lblValidacionDescripcion").text("este campo no puede estar vacio");
+                        estaOk = false;
+                    } else {
+                        $("#lblValidacionDescripcion").text("");
+
+                    }
+
+                    var foto = $("#inputFoto").val();
+                    if (!foto) {
+                        $("#lblValidacionFoto").text("este campo no puede estar vacio");
+                        estaOk = false;
+                    } else {
+                        $("#lblValidacionFoto").text("");
+
+                    }
+
+                    if (estaOk)
+                        $("form").submit();
+
+                    //FATA EL SUBMIT
+
+
+
+                });
+            });
+        </script>

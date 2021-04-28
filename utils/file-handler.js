@@ -1,12 +1,13 @@
 const fs = require("fs");
 const {v4: uuid} = require("uuid");
-const allowExtension = ["png","jpg"];
+const allowExtension = ["png","jpg","jpeg"];
 
 const deleteTemp = (file) => fs.unlink(file, e => console.log(e));
 
 const saveFile = ({mimetype,size,path}, extension, destinationFolder = './public/images') => {
     try {
         const [type, ext] = mimetype.split("/");
+        console.log("Extension de la imagen:" + ext);
         if(!extension.includes(ext))
             throw new Error("Formato incorrecto");
 

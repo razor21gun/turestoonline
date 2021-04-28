@@ -21,4 +21,5 @@ const single = async (id) =>{
     return rows;
 }
 
+
 module.exports = {getPedidosByUsuario,single}
